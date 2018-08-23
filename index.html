@@ -41,10 +41,44 @@
         <h2 id="horGraph">Graduates to Date</h2>
         <canvas id="horizontalBar" style="max-width: 800px; max-height: 600px;"></canvas>
     </div>
+    <div>
+        <h2>9101</h2>
+        <p>tyui</p>
+        <p>bnm.</p>
+    </div>
+    <hr />
 
+    <div>
+        <h2>1234</h2>
+        <p>asdf</p>
+        <p>qwer</p>
+    </div>
+    <div>
+        <h2>5678</h2>
+        <p>zxcv</p>
+        <p>ghjk</p>
+    </div>
+    <div>
+        <h2>9101</h2>
+        <p>tyui</p>
+        <p>bnm.</p>
+    </div>
+    <hr />
+
+    <div>
+        <h2>1234</h2>
+        <p>asdf</p>
+        <p>qwer</p>
+    </div>
+    <div>
+        <h2>5678</h2>
+        <p>zxcv</p>
+        <p>ghjk</p>
+    </div>
     <script>
         // global overrides
         Chart.defaults.global.animation.duration = 3000;
+        Chart.defaults.global.animation.easing = "easeInOutSine";
         Chart.defaults.global.legend.display = false;
         Chart.defaults.global.defaultFontColor = 'black';
         Chart.defaults.global.defaultFontFamily = "'Montserrat', 'Arial', sans-serif";
@@ -132,29 +166,6 @@
             });
         }
 
-        // jQuery(document).ready(function () {
-
-        //     // if ($("#vertGraph").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
-        //     if (jQuery('#verticalBar').is(':visible')) {
-
-        //         console.log('VERT IS VISIBLE');
-
-        //         verticalGraph();
-
-        //     }
-
-        //     // if ($("#horizontalBar").offset().top < $(window).scrollTop() + $(window).outerHeight()) {
-        //     if (jQuery('#horizontalBar').is(':visible')) {
-
-        //         console.log('HOR IS VISIBLE');
-
-        //         horizontalGraph();
-
-        //     }
-
-        // });
-
-
         function isElementInViewport(el) {
 
             console.log('IN VIEW FIRED');
@@ -167,10 +178,7 @@
             var rect = el.getBoundingClientRect();
 
             return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
             );
         }
 
