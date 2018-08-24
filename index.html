@@ -34,11 +34,10 @@
         Chart.defaults.global.defaultFontColor = 'black';
         Chart.defaults.global.defaultFontFamily = "'Montserrat', 'Arial', sans-serif";
 
-        var horizontalBar;
+        var hBar;
 
         function drawChart() {
 
-            // Bar Graph Boilerplate
             var ctx = document.getElementById("horizontalBar").getContext('2d');
 
             var data = {
@@ -80,18 +79,16 @@
                     }
                 }
             }
-
-            if (horizontalBar.destroy) {
-                horizontalBar.destroy();
+            
+            if (hBar) {
+                hBar.destroy();
+                hBar = new Chart(ctx, data);
+            } else {
+                hBar = new Chart(ctx, data);
             }
-
-            horizontalBar = new Chart(ctx, data);
-
         }
 
         function isElementInViewport(el) {
-
-            console.log('IN VIEW FIRED');
 
             if (typeof jQuery === "function" && el instanceof jQuery) {
                 el = el[0];
@@ -105,8 +102,6 @@
         }
 
         function onVisibilityChange(el, callback) {
-
-            console.log('VISIBLE FIRED');
 
             var old_visible;
 
@@ -123,13 +118,10 @@
 
         var handler = onVisibilityChange(document.getElementById('horGraph'), function () {
 
-            console.log('HANDLER FIRED');
-
             drawChart();
 
         });
 
-        //jQuery
         $(window).on('DOMContentLoaded load resize scroll', handler);
     </script>
 </body>
